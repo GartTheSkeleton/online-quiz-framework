@@ -1,0 +1,17 @@
+#quizContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#quizContainer h1{
+    width: 100%;
+    border-bottom: 5px solid black;
+}
+
+#quizContainer button{
+    margin: 20px;
+    display: block;
+}
