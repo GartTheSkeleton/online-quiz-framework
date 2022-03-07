@@ -23,10 +23,10 @@ let answer = 1
 let highscores = [0,0,0,0,0];
 let highscoreNames = ["?","?","?","?","?"]
 //constants storing the questions
-const question1 = {question:"Question text here", answer1:"Answer 1 text here", answer2:"Answer 2 text here", answer3:"Answer 3 text here", answer4:"Answer 4 text here", correctAnswer:1}
-const question2 = {question:"Question text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
-const question3 = {question:"Question text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
-const question4 = {question:"Question text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
+const question1 = {question:"Question 1 text here", answer1:"Answer 1 text here", answer2:"Answer 2 text here", answer3:"Answer 3 text here", answer4:"Answer 4 text here", correctAnswer:1}
+const question2 = {question:"Question 2 text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
+const question3 = {question:"Question 3 text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
+const question4 = {question:"Question 4 text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
 //an array to refer to the questions individually
 var questionArray = [question1, question2, question3, question4]
 
@@ -101,6 +101,7 @@ var quizProceed = function(){
 var endQuiz = function(){
     questionCounter = 0;
     quizScreen.style.display = "none";
+    scoreBox.style.display = "none"
     titleScreen.style.display = "inline";
 }
 
