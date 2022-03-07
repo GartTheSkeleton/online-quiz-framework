@@ -15,3 +15,14 @@
     margin: 20px;
     display: block;
 }
+
+.quiz-section{
+    display: none;
+}
+
+.scoreBox{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
