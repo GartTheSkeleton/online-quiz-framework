@@ -3,6 +3,10 @@
 //define the timer
 const defaultTimerValue = 120;
 var timer = defaultTimerValue;
+var quizzing = false
+var timerBox = document.querySelector(".timerBox");
+var timerInt = 0
+
 
 //define terminology for different sections of the webpage
 var quizContainer = document.querySelector("#quizContainer");
@@ -29,7 +33,7 @@ const question1 = {question:"Question 1 text here", answer1:"This is the correct
 const question2 = {question:"Question 2 text here", answer1:"Answer text here", answer2:"This is the correct answer", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:2}
 const question3 = {question:"Question 3 text here", answer1:"This is the correct answer", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
 const question4 = {question:"Question 4 text here", answer1:"This is the correct answer", answer2:"Answer text here", answer3:"Answer text here", answer4:"Answer text here", correctAnswer:1}
-const question5 = {question:"Question 5 text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"This is the correct answer", answer4:"Answer text here", correctAnswer:3}
+const question5 = {question:"Question 5 text here", answer1:"Answer text here", answer2:"Answer text here", answer3:"This is the correct answer", answer4:"Answer text here", correctAnswer:3 }
 //an array to refer to the questions individually
 var questionArray = [question1, question2, question3, question4, question5]
 
@@ -63,6 +67,10 @@ var finishBtn = document.querySelector("#end-game")
 //Function to begin the quiz from the title screen
 var quizStartQuiz = function(){
     console.log("started");
+    timerInt = setInterval(appendTimer,1000);
+    timerBox.style.display = "inline";
+    timer = defaultTimerValue;
+    quizzing = true;
     //hides title screen
     titleScreen.style.display = "none";
     //reveals question block
@@ -71,6 +79,7 @@ var quizStartQuiz = function(){
     scoreBox.style.display = "inline";
     //writes score to scorebox
     scoreBox.textContent = "Score:" + playerScore;
+    timerBox.textContent = "Timer:" + timer;
     //writes textcontent to the question and answers
     questionTitle.textContent = questionArray[questionCounter].question;
     questionBtn1.textContent = questionArray[questionCounter].answer1;
@@ -101,11 +110,16 @@ var quizProceed = function(){
     if (answer === questionArray[questionCounter].correctAnswer){
         playerScore += 1
         scoreBox.textContent = "Score:" + playerScore;
+    }else{
+        timer -= 10;
+        timerBox.textContent = "Timer:" + timer;
     }
 
     questionCounter += 1
 
     if (questionCounter >= questionArray.length){
+        clearInterval(timerInt);
+        timerInt = 0;
         endQuiz();
     } else {
     //writes textcontent to the question and answers
@@ -117,13 +131,27 @@ var quizProceed = function(){
     }
 }
 //Function to end the quiz when time runs out
+var appendTimer = function(){
+    if (timer > 0)
+         {
+         timer -= 1
+         timerBox.textContent = "Timer:" + timer;
+         }else{
+             if (quizzing = true){
+                 quizzing = false;
+                 clearInterval(timerInt);
+                 timerInt = 0;
+                 endQuiz();
+             }
+         }
+    }
 
-
-//Function to end the quiz when the last question is answered
+//Function to end the quiz
 var endQuiz = function(){
     questionCounter = 0;
     quizScreen.style.display = "none";
     scoreBox.style.display = "none";
+    timerBox.style.display = "none";
     endQuizSection.style.display = "inline";
 
     yourScoreHere.textContent = playerScore;
