@@ -27,10 +27,14 @@
     position: fixed;
     top: 0;
     left: 0;
+    color: #4CAF50;
+    font-size: 20px;;
 }
 
 .end-quiz-section{
     display: none;
+    color: #4CAF50;
+    font-size: 20px;;
 }
 
 .endscreenTitle2{
@@ -39,6 +43,7 @@
 
 .scoreboard{
     display: none;
+    color: #4CAF50;
 }
 
 .timerBox{
@@ -46,6 +51,8 @@
     position: fixed;
     top: 32px;
     left: 0;
+    color: #4CAF50;
+    font-size: 20px;;
 }
 
 button {
